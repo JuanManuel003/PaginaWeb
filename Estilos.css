@@ -1,0 +1,33 @@
+body{/*para ponerle color al fondo de la pagina web*/
+    background-color: gray;
+}
+
+.colorful-button{/*para ponerle color, tamaño, solor de texto, y bordes*/
+     background-color: black;
+     color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+.colorBoton2{/*para ponerle color, tamaño, solor de texto, y bordes*/
+    background-color: rgb(7, 151, 167);
+    color: white;
+   padding: 5px 15px;
+   border-radius: 5px;
+}
+
+/*para personalizar la ventana modal*/
+#modal::backdrop{
+    background-color: rgba(0, 0, 0, .55);/*oscurece el fondo*/
+}
+ #modal{
+    max-width: 500px;//*para darle un tamaño de ancho maximo*/
+ }
+
+ .centralizar{ /*para centralizar el contenido de la pagina*/
+    font-family: Georgia, 'Times New Roman', Times, serif;/*para poner el tipo de letra*/
+    text-align: center; /* Si deseas centrar el contenido dentro del contenedor */
+    max-width: 2000px; /* Puedes ajustar el ancho máximo según tus necesidades */
+    padding: 20px; /* Puedes ajustar el relleno interno según tus necesidades */
+}
+
+

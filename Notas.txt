@@ -1,0 +1,21 @@
+Las propiedades o estados que podemos ver en en AJAX de nuestro 
+proyecto, están: 
+
+- 0 = request sin iniciar
+- 1 = conexión establecida
+- 2 = reqquest recibido
+- 3 = procesando el request
+- 4 = request finalizado y la respuesta está lista
+Todos los anteriores estados mencionados esta ligados con la función
+'readyState', que es aquella que nos va a retornar alguno de los 
+anteriores estados.
+
+cuando en la pagina web vemos un error o vemos numeros de 3 cifras, 
+cabe mirar los siguiente:
+
+- 200 = correcto/ok
+- 403 = prohibido/forbidden
+- 404 = no encontrado/not found
+Todos los anteriores estados mencionados esta ligados con la función
+'status', que es aquella que nos va a retornar alguno de los 
+anteriores estados.

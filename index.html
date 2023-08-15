@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>retomano mis conocimientos de html y aprendiendo js</title>
+
+    <script src="variables.js"> </script> <!--para enlazar nuestro documento js con el html-->
+    <script src="Clases.js"> </script> <!--para enlazar nuestro documento css con el html-->
+    <link rel="stylesheet" type="text/css" href="Estilos.css">
+
+
+</head>
+
+<body class="centralizar"><!--sirve para comentar en HTML-->
+    <h1>en este curso vamos a retomar lo que yo se de HTML </h1>
+    <h1>y aprender JS</h1>
+
+    <script> var elementosH1 = document.getElementsByTagName("h1");</script>
+    <h2>lenguajes a tratar: </h2>
+    <ol>
+        <li>HTML</li>
+        <li>JavaScript</li>
+
+        <script></script>
+    </ol>
+
+    <p id="textoPrueba">este texto es de prueba para el boton "cambiar texto"</p>
+    <input type="button" value="te saludo?"
+        onclick="saludar()"><!--para crear un boton y que al hacer click ejecute la funcion saludar-->
+    <br> <!--salto de linea--> <br>
+    <input type="button" value="te saludo por tu nombre" onclick="pedirnombre()" class="colorBoton2">
+    <br> <br>
+    <input type="button" value="Persona" onclick="nombrePersona()">
+    <br> <br>
+    <input type="button" value="Agregar texto" onclick="agregarContenido()">
+    <br> <br>
+    <input type="button" value="modificar texto" onclick="modificarContenido()">
+    <br> <br>
+    <input type="button" value="cambiar Contenido" onclick="cambiarContenido()">
+    <br> <br>
+    <input type="button" value="cambiar color del fondo" onclick="cambiarColorFondo()"
+        style="background-color: darkslategray; color: aliceblue; ">
+    <br> <br>
+    <a href="https://app.edutin.com/classroom?course_id=4284&source_id=99796"> para ir a <b>Edutin</b></a>
+
+    <div id="textoNodo"></div>
+
+    <!-- otra forma de crear un boton pero ya indicandole la posicion en la que queremos que esté
+   <style>
+        .mi-boton {
+            position: absolute;
+            top: 200px;
+            left: 300px;
+        }
+    </style>
+    <button class="mi-boton" onclick="saludar()">te saludo?</button>-->
+    <p> -------------------------------Eventos------------------------------------</p>
+    <!--para crear un boton y definir su evento aca mismo en el html, y tambien definirle su estilo atravez de css-->
+    <button id="Boton" class="colorful-button">Boton</button>
+    <script>
+        (function () {
+            var saludo = function () {
+                alert('saludo')
+            }
+
+            var boton = document.getElementById('Boton');
+            boton.addEventListener("click", saludo)
+
+        })();
+    </script>
+
+    <p>-------------------------------Ventanas Modales------------------------------------</p>
+    <!--para crear ventanas modales-->
+    <button id="botonModal" class="colorful-button" onclick="VentanaModal()">Abrir Ventana Modal</button>
+
+    <dialog id="modal">
+        <h2>Holaaaa soy una ventana modal</h2>
+        <p>una ventana modal (también conocida como cuadro de diálogo modal) es una ventana emergente
+            que se superpone al contenido principal de una página web y obliga al usuario a interactuar
+            con ella antes de continuar con otras acciones en el sitio
+        </p>
+        <button id="botonCerrarModal">Cerrar Ventana Modal</button>
+    </dialog>
+
+    <p>-------------------------------Almacenamiento Interno------------------------------------</p>
+    <!--cabe a clarar que cuando hablamos de almacenamiento interno en la pagina web, este solo nos da la capacidad maxima de 5MB
+    ya qu es usado para guardar pequeños datos/cosas, como en el sig ejemplo:-->
+    <label>Ingrese un texto: </label>
+    <input type="text" id="textoAguadar"> <br>
+    <label>Texto Ingresado:</label>
+    <input type="text" id="textoRecuperado"> <br>
+    <button id="btnGuardarTexto" onclick="guardarTexto()">Guardar</button> 
+    <button id="btnTextoRecuperado" onclick="RecuperarTexto()">Recuperar</button>
+
+    <script>
+        function guardarTexto(){
+            var texto = document.getElementById("textoAguadar").value;
+            localStorage.setItem("textoAguardar", texto);//para guardar el texto
+            console.log("Guardado correctamente "+texto)
+        }
+
+        function RecuperarTexto(){
+            document.getElementById("textoRecuperado").value = localStorage.getItem("textoAguardar");
+        }
+    </script>
+
+<p>-------------------------------Imagenes------------------------------------</p>
+
+<img src="/Imagenes/imagen.jpg" width="500px" height="250px">
+
+<p>ahora para poder seleccionarla y subirla: </p>
+  <input type="file" id="fileInput" accept="image/*"><!--para abrir el gestor de archivos-->
+  <button onclick="uploadImage()">Subir imagen</button>
+  <div id="imagePreview"></div>
+
+  <script>
+    function uploadImage() {
+      const fileInput = document.getElementById("fileInput");
+      const file = fileInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+          const imagePreview = document.getElementById("imagePreview");
+          const imageElement = document.createElement("img");
+          imageElement.src = event.target.result;
+          imageElement.alt = "Vista previa de la imagen";
+          imageElement.style.maxWidth = "300px";
+          imagePreview.innerHTML = ""; // Limpia el contenedor antes de mostrar una nueva imagen
+          imagePreview.appendChild(imageElement);
+        }
+
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+
+
+
+</body>
+
+</html>
